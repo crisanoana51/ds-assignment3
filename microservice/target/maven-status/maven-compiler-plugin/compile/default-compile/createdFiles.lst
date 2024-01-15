@@ -1,0 +1,8 @@
+device\microservice\entities\Device.class
+device\microservice\MicroserviceApplication.class
+device\microservice\payload\response\MessageResponse.class
+device\microservice\payload\request\UpdateDeviceRequest.class
+device\microservice\controllers\DeviceController.class
+device\microservice\services\DeviceService.class
+device\microservice\payload\request\AddDeviceRequest.class
+device\microservice\repositories\DeviceRepository.class

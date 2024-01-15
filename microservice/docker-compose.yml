@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  device-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Zambila2011!
+      POSTGRES_DB: dsprjmergedevice
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  device-microservice:
+    image: backend-device
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://device-db:5432/dsprjmergedevice
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Zambila2011!
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+    ports:
+      - "8081:8081"
+    depends_on:
+      - device-db
+    
+volumes:
+  db-data:
+
+
